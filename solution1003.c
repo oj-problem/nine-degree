@@ -16,11 +16,11 @@ int main(int argc, char** argv)
   int len2;
   int i;
   int j;
-  int val1 = 0;
-  int val2 = 0;
-  int ret;
   while(scanf("%s %s", str1, str2) != EOF)
   {
+    int val1 = 0;
+    int val2 = 0;
+
     len1 = strlen(str1);
     len2 = strlen(str2);
     for(i = 0; i < len1; i ++)
@@ -43,20 +43,19 @@ int main(int argc, char** argv)
     char2 = str2[0];
     if(char1 == '-' && char2 == '-')
     {
-      ret = (val1 + val2) * (-1);
+      printf("%d\n", (val1 + val2) * (-1));
     }
     else if(char1 != '-' && char2 != '-')
     {
-      ret = val1 + val2;
+      printf("%d\n", val1 + val2);
     }
     else if(char1 == '-' && char2 != '-')
     {
-      ret = val2 - val1; 
+      printf("%d\n", val2 - val1); 
     }
     else {
-      ret = val1 - val2;
+      printf("%d\n", val1 - val2);
     }
   }
-  printf("%d", ret);
   return 0;
 }
