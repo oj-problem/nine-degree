@@ -12,15 +12,17 @@
 
 double stack[MAX];
 
-int tail;
+int tail;                        /* Always point to the tair of stack */
 
 int main(int argc, char** argv)
 {
-  int left;
-  int right;
-  int i;
-  double result;
-  while (scanf("%d ", &left) && left != 0)
+  int left;                     /* Operator left number */
+  int right;                    /* Operator right number */
+  int i;                        /* Loop variable */
+  double result;                /* Final result */
+
+  /* Judge wether the user's input ends */
+  while (scanf("%d ", &left) && left != 0)       
   {
     tail = 0;
     result = 0;
@@ -30,22 +32,23 @@ int main(int argc, char** argv)
     {
       switch (ch1)
       {
-        case '+':
+        case '+':           /* Push positive number to stack */
           stack[++tail] = 1.0 * right;
           break;
-        case '-':
+        case '-':          /* Push negetive number to stack */
           stack[++tail] = -1.0 * right;
           break;
-        case '*':
+        case '*':          /* Update tail */
           stack[tail] = stack[tail] * right;
           break;
-        case '/':
+        case '/':          /* Update tail */
           stack[tail] = stack[tail] / (double)right;
           break;
       }
       if (ch2 != ' ')
         break;
     }
+    // Calculate the sum of the stack, and output it.
     for (i = 0; i <= tail; i ++)
     {
       result += stack[i];
